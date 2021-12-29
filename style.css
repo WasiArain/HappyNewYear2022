@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-sarif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e8ffe8;
+    transform-origin: bottom;
+    overflow: hidden;
+}
+
+.tree {
+    position: relative;
+    top: -150px;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: animate 16s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotateX(-20deg) rotateY(360deg);
+    }
+    100% {
+        transform: rotateX(-20deg) rotateY(0deg);
+    }
+}
+
+.tree::before {
+    content: 'WASI is Wishing U';
+    position: absolute;
+    top: -80px;
+    left: calc(50% - 75px);
+    font-size: 1.5em;
+    color: crimson;
+}
+
+.tree div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translateY(calc(100px * var(--j)));
+}
+
+.tree div.top span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #69c069, #77dd77);
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(173px);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border-bottom: 10px solid #00000019;
+}
+
+.tree div.bottom span {
+    position: absolute;
+    top: 350px;
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(90deg, #bb4622, #df7214);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(30px);
+    border-bottom: 10px solid #0005;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: #0002;
+    transform-style: preserve-3d;
+    transform: rotateX(90deg) translateZ(-500px);
+    filter: blur(20px);
+}
+
+.tree div.text span {
+    position: absolute;
+    top: 350px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: bottom;
+    border-bottom: 10px solid #00000019;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(173px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #ff4242;
+    font-size: 8em;
+    text-transform: uppercase;
+    line-height: 1em;
+    -webkit-text-stroke: 3px #fff;
+    font-weight: 700;
+    transform-style: preserve-3d;
+}
+
+.tree div.text span:nth-child(1) {
+    font-size: 6em;
+}
+
+.tree div.text span::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 7px;
+    transform-origin: bottom;
+    transform: rotateX(-90deg);
+    -webkit-text-stroke: 0px #fff;
+    color: rgba(0, 0, 0, 0.1);
+    filter: blur(5px);
+}

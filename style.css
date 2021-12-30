@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    width: 100%;
     background: #e8ffe8;
     transform-origin: bottom;
     overflow: hidden;
@@ -19,8 +20,6 @@ body {
 .tree {
     position: relative;
     top: -150px;
-    width: 300px;
-    height: 300px;
     transform-style: preserve-3d;
     animation: animate 16s linear infinite;
 }
@@ -37,9 +36,6 @@ body {
 .tree::before {
     content: 'WASI is Wishing U';
     position: absolute;
-    top: -80px;
-    left: calc(50% - 75px);
-    font-size: 1.5em;
     color: crimson;
 }
 
@@ -50,7 +46,6 @@ body {
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transform: translateY(calc(100px * var(--j)));
 }
 
 .tree div.top span {
@@ -61,28 +56,19 @@ body {
     height: 100%;
     background: linear-gradient(90deg, #69c069, #77dd77);
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(173px);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     border-bottom: 10px solid #00000019;
 }
 
 .tree div.bottom span {
     position: absolute;
-    top: 350px;
     left: calc(50% - 30px);
-    width: 60px;
-    height: 100%;
     background: linear-gradient(90deg, #bb4622, #df7214);
-    transform: rotateY(calc(90deg * var(--i))) translateZ(30px);
     border-bottom: 10px solid #0005;
 }
 
 .shadow {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 300px;
     background: #0002;
     transform-style: preserve-3d;
     transform: rotateX(90deg) translateZ(-500px);
@@ -91,27 +77,19 @@ body {
 
 .tree div.text span {
     position: absolute;
-    top: 350px;
-    left: 0;
     width: 100%;
     height: 100%;
     transform-origin: bottom;
     border-bottom: 10px solid #00000019;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(173px);
     display: flex;
     justify-content: center;
     align-items: flex-end;
     color: #ff4242;
-    font-size: 8em;
     text-transform: uppercase;
     line-height: 1em;
     -webkit-text-stroke: 3px #fff;
     font-weight: 700;
     transform-style: preserve-3d;
-}
-
-.tree div.text span:nth-child(1) {
-    font-size: 6em;
 }
 
 .tree div.text span::before {
@@ -123,4 +101,82 @@ body {
     -webkit-text-stroke: 0px #fff;
     color: rgba(0, 0, 0, 0.1);
     filter: blur(5px);
+}
+
+@media (min-width: 100px) and (max-width: 800px) {
+    .tree {
+        width: 180px;
+        height: 120px;
+    }
+    .tree::before {
+        top: -65px;
+        font-size: 1em;
+        left: calc(50% - 55px);
+    }
+    .tree div {
+        transform: translateY(calc(70px * var(--j)));
+    }
+    .tree div.top span {
+        transform: rotateY(calc(90deg * var(--i))) rotateX(43deg) translateZ(112px);
+    }
+    .tree div.bottom span {
+        top: 240px;
+        width: 40px;
+        height: 100%;
+        transform: rotateY(calc(90deg * var(--i))) translateZ(20px);
+    }
+    .shadow {
+        top: -240px;
+        left: -20px;
+        width: 200px;
+        height: 200px;
+    }
+    .tree div.text span {
+        top: 220px;
+        left: 0;
+        font-size: 4em;
+        transform: rotateY(calc(90deg * var(--i))) translateZ(103px);
+    }
+    .tree div.text span:nth-child(1) {
+        font-size: 4em;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1600px) {
+    .tree {
+        width: 300px;
+        height: 300px;
+    }
+    .tree::before {
+        top: -80px;
+        font-size: 1.5em;
+        left: calc(50% - 75px);
+    }
+    .tree div {
+        transform: translateY(calc(100px * var(--j)));
+    }
+    .tree div.top span {
+        transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(173px);
+    }
+    .tree div.bottom span {
+        top: 350px;
+        width: 60px;
+        height: 100%;
+        transform: rotateY(calc(90deg * var(--i))) translateZ(30px);
+    }
+    .shadow {
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 300px;
+    }
+    .tree div.text span {
+        top: 350px;
+        left: 0;
+        font-size: 8em;
+        transform: rotateY(calc(90deg * var(--i))) translateZ(173px);
+    }
+    .tree div.text span:nth-child(1) {
+        font-size: 6em;
+    }
 }

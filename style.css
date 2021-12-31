@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oswald', sans-sarif;
 }
 
 body {
@@ -37,6 +37,7 @@ body {
     content: 'WASI is Wishing U';
     position: absolute;
     color: crimson;
+    font-family: 'Oswald', sans-sarif;
 }
 
 .tree div {
@@ -52,8 +53,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     background: linear-gradient(90deg, #69c069, #77dd77);
     transform-origin: bottom;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -85,6 +84,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     color: #ff4242;
+    font-family: 'Oswald', sans-sarif;
     text-transform: uppercase;
     line-height: 1em;
     -webkit-text-stroke: 3px #fff;
@@ -117,6 +117,8 @@ body {
         transform: translateY(calc(70px * var(--j)));
     }
     .tree div.top span {
+        width: 92%;
+        height: 100%;
         transform: rotateY(calc(90deg * var(--i))) rotateX(43deg) translateZ(112px);
     }
     .tree div.bottom span {
@@ -140,6 +142,14 @@ body {
     .tree div.text span:nth-child(1) {
         font-size: 4em;
     }
+    .modal {
+        width: max-content;
+        height: max-content;
+        font-size: 3vw;
+    }
+    .modal p {
+        font-weight: 700;
+    }
 }
 
 @media (min-width: 800px) and (max-width: 1600px) {
@@ -156,6 +166,8 @@ body {
         transform: translateY(calc(100px * var(--j)));
     }
     .tree div.top span {
+        width: 100%;
+        height: 100%;
         transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(173px);
     }
     .tree div.bottom span {
@@ -179,4 +191,55 @@ body {
     .tree div.text span:nth-child(1) {
         font-size: 6em;
     }
+    .modal {
+        width: 50%;
+        height: max-content;
+        font-size: 1em;
+    }
+}
+
+.modal-container {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100vh;
+    transition: opacity 4s ease-in-out;
+}
+
+.modal {
+    text-align: center;
+    background: #fff;
+    margin: 30px;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-sarif;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: opacity 4s ease-in-out;
+}
+
+.modal p {
+    margin: 10px;
+    opacity: 0.7;
+    text-align: left;
+}
+
+.btn {
+    margin: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    background: #69c069;
+    font-size: 1em;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }

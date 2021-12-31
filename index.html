@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <audio src="cadmium.mp3" aria-hidden="true" autoplay loop preload="auto"></audio>
+    <!-- <iframe width="0" height="0" src="https://m.youtuberepeater.com/watch?v=9MiFRbymQXQ&feature=youtu.be#gsc.tab=0" frameborder="0" allowfullscreen></iframe> -->
+
     <div class="tree">
         <div class="top" style="--j:0;">
             <span style="--i:0"></span>
@@ -50,6 +53,29 @@
             <span style="--i:3" data-text="2022">2022</span>
         </div>
     </div>
+
+    <div id="modal_container" class="modal-container">
+        <div id="modal" class="modal">
+            <h3 style="margin: 10px;">Happy New Year 2022!</h3>
+            <p> <span style="text-align: center;">Wishing you in a Very Unique Way! Because I'm a Web Designer!!!</span><br><br>
+                <span> With the Grace of Allah Almighty, May 2022 be the best year of your Life. <br><br> May you find success, happiness and everything your heart desires. Wishing you and your loved ones a very Happy New Year!</span>
+                <span> May this year be the start of a new chapter in which you write your own story! </span>
+            </p>
+            <button type="button" id="close" onclick="hidemodal()" class="btn">Thanks Wasi</button>
+        </div>
+    </div>
+
+    <script>
+        function showmodal() {
+            document.getElementById("modal_container").style.visibility = "visible";
+        }
+        setTimeout("showmodal()", 4000);
+
+        function hidemodal() {
+            document.getElementById("modal_container").style.visibility = "hidden";
+        }
+        // setTimeout("hidemodal()", 100000);
+    </script>
 </body>
 
 </html>
